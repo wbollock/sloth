@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [v0.13.1] - 2024-10-31
+
+- Update Mockery from 2.14.0 to 2.46.3
+- Run `make go-gen`
+- Run `make kube-gen`
+
 ## [v0.13.0] - 2024-10-31
 
 - Fix buildvcs issues with test scripts

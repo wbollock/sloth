@@ -68,6 +68,7 @@ slos:
 - [Constants](<#constants>)
 - [type Alert](<#type-alert>)
 - [type Alerting](<#type-alerting>)
+- [type Interval](<#type-interval>)
 - [type SLI](<#type-sli>)
 - [type SLIEvents](<#type-slievents>)
 - [type SLIPlugin](<#type-sliplugin>)
@@ -82,7 +83,7 @@ slos:
 const Version = "prometheus/v1"
 ```
 
-## type Alert
+## type [Alert](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L171-L180>)
 
 Alert configures specific SLO alert.
 
@@ -99,7 +100,7 @@ type Alert struct {
 }
 ```
 
-## type Alerting
+## type [Alerting](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L144-L156>)
 
 Alerting wraps all the configuration required by the SLO alerts.
 
@@ -119,7 +120,23 @@ type Alerting struct {
 }
 ```
 
-## type SLI
+## type [Interval](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L158-L168>)
+
+```go
+type Interval struct {
+    // RuleGroupInterval is an optional value for how often the Prometheus rule_group should be evaluated.
+    // RuleGroupInterval string `yaml:"rulegroup_interval,omitempty"`
+    RuleGroupInterval time.Duration `yaml:"all,omitempty"`
+    // Otherwise, specify custom rule_group intervals for each set of recording rules.
+    // RuleGroupInterval will "fill-in" for any non-specified individual groups
+    // but individual group settings override RuleGroupInterval.
+    SLIErrorRulesInterval time.Duration `yaml:"slierror,omitempty"`
+    MetadataRulesInterval time.Duration `yaml:"metadata,omitempty"`
+    AlertRulesInterval    time.Duration `yaml:"alert,omitempty"`
+}
+```
+
+## type [SLI](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L106-L113>)
 
 SLI will tell what is good or bad for the SLO. All SLIs will be get based on time windows, that's why Sloth needs the queries to use \`\{\{.window\}\}\` template variable.
 
@@ -136,7 +153,7 @@ type SLI struct {
 }
 ```
 
-## type SLIEvents
+## type [SLIEvents](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L124-L133>)
 
 SLIEvents is an SLI that is calculated as the division of bad events and total events, giving a ratio SLI. Normally this is the most common ratio type.
 
@@ -153,7 +170,7 @@ type SLIEvents struct {
 }
 ```
 
-## type SLIPlugin
+## type [SLIPlugin](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L136-L141>)
 
 SLIPlugin will use the SLI returned by the SLI plugin selected along with the options.
 
@@ -166,7 +183,7 @@ type SLIPlugin struct {
 }
 ```
 
-## type SLIRaw
+## type [SLIRaw](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L117-L120>)
 
 SLIRaw is a error ratio SLI already calculated. Normally this will be used when the SLI is already calculated by other recording rule, system...
 
@@ -177,7 +194,7 @@ type SLIRaw struct {
 }
 ```
 
-## type SLO
+## type [SLO](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L78-L99>)
 
 SLO is the configuration/declaration of the service level objective of a service.
 
@@ -193,15 +210,20 @@ type SLO struct {
     // alerting rules for this specific SLO. These labels are merged with the
     // previous level labels.
     Labels map[string]string `yaml:"labels,omitempty"`
+    // Labels appended to `sloth_slo_info`
+    InfoLabels map[string]string `yaml:"infoLabels,omitempty"`
     // SLI is the indicator (service level indicator) for this specific SLO.
     SLI SLI `yaml:"sli"`
     // Alerting is the configuration with all the things related with the SLO
     // alerts.
     Alerting Alerting `yaml:"alerting"`
+    // Interval is the configuration for all things related to SLO rule_group intervals
+    // for specific rule groups and all rules.
+    Interval Interval `yaml:"interval,omitempty"`
 }
 ```
 
-## type Spec
+## type [Spec](<https://github.com/linode-obs/sloth/blob/main/pkg/prometheus/api/v1/v1.go#L64-L74>)
 
 Spec represents the root type of the SLOs declaration specification.
 
