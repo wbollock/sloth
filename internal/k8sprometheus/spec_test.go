@@ -234,6 +234,8 @@ spec:
     - name: "slo1"
       labels:
         category: test
+      infoLabels:
+        foo: bar
       objective: 99.99999
       description: "This is a test."
       sli:
