@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "deploy/kubernetes/helm/**"
+  workflow_dispatch:
 
 jobs:
   release:
