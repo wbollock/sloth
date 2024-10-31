@@ -2,14 +2,16 @@
 
 ## [Unreleased]
 
-## [v0.13.2] - 2024-10-30
+## [v0.13.2] - 2024-10-31
 
-- Add forgotten v0.13.1 changelog entry
-- Fix buildvcs issues with test scripts
-- Bump golang version from 1.19.3 to 1.23
-- Bump golangci-lint version from 1.50.0 to 1.61.0
-- Bump helm-chart-releaser action from v1.4.1 to v1.6.0
-- Ran `go mod tidy`
+- Add forgotten v0.13.1 changelog entry [#9](https://github.com/linode-obs/sloth/pull/9)
+- Fix buildvcs issues with test scripts [#9](https://github.com/linode-obs/sloth/pull/9)
+- Bump golang version from 1.19.3 to 1.23 [#9](https://github.com/linode-obs/sloth/pull/9)
+- Bump golangci-lint version from 1.50.0 to 1.61.0 [#9](https://github.com/linode-obs/sloth/pull/9)
+- Bump helm-chart-releaser action from v1.4.1 to v1.6.0 [#9](https://github.com/linode-obs/sloth/pull/9)
+- Ran `go mod tidy` [#9](https://github.com/linode-obs/sloth/pull/9)
+- update test cases for new info labels
+- remove info labels from K8sMeta spec
 
 ## [v0.13.1] - 2024-10-30
 
