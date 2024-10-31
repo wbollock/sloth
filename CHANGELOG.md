@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+## [v0.13.2] - 2024-10-30
+
+- Add forgotten v0.13.1 changelog entry
+- Fix buildvcs issues with test scripts
+- Bump golang version from 1.19.3 to 1.23
+- Bump golangci-lint version from 1.50.0 to 1.61.0
+- Bump helm-chart-releaser action from v1.4.1 to v1.6.0
+- Ran `go mod tidy`
+
+## [v0.13.1] - 2024-10-30
+
+- disable buildvcs [#8](https://github.com/linode-obs/sloth/pull/8)
+
 ## [v0.13.0] - 2024-10-30
 
 - Custom labels for `sloth_slo_info{}` metric [#4](https://github.com/linode-obs/sloth/pull/4)
