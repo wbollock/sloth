@@ -7,6 +7,9 @@
 - Update Mockery from 2.14.0 to 2.46.3
 - Run `make go-gen`
 - Run `make kube-gen`
+- Run `make examples-gen`
+- Bump Helm Chart version from 0.8.1 to 0.8.2
+- Bump image version from v0.13.0 to v0.13.1
 
 ## [v0.13.0] - 2024-10-31
 
