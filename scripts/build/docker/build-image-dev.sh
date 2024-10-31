@@ -11,4 +11,4 @@ set -e
 echo "Building dev image ${IMAGE}:${VERSION}..."
 docker build \
     -t "${IMAGE}:${VERSION}" \
-    -f "${DOCKER_FILE_PATH}" .
+    -f "${DOCKER_FILE_PATH}" . \
