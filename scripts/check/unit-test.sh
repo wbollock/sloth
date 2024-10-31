@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 
 go test -buildvcs=false -race -coverprofile=.test_coverage.txt $(go list ./... | grep -v /test/integration )
-go tool cover  -func=.test_coverage.txt | tail -n1 | awk '{print "Total test coverage: " $3}'
+go tool cover -func=.test_coverage.txt | tail -n1 | awk '{print "Total test coverage: " $3}'
