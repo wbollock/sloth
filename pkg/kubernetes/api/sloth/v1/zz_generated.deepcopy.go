@@ -278,6 +278,13 @@ func (in *SLO) DeepCopyInto(out *SLO) {
 			(*out)[key] = val
 		}
 	}
+	if in.InfoLabels != nil {
+		in, out := &in.InfoLabels, &out.InfoLabels
+		*out = make(map[string]string, len(*in))
+		for key, val := range *in {
+			(*out)[key] = val
+		}
+	}
 	in.SLI.DeepCopyInto(&out.SLI)
 	in.Alerting.DeepCopyInto(&out.Alerting)
 	return
