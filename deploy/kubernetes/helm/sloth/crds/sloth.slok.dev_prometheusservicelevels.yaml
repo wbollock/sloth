@@ -148,6 +148,11 @@ spec:
                     description:
                       description: Description is the description of the SLO.
                       type: string
+                    infoLabels:
+                      additionalProperties:
+                        type: string
+                      description: Info labels added to the `sloth_slo_info` metric
+                      type: object
                     labels:
                       additionalProperties:
                         type: string

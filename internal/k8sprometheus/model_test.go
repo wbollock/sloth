@@ -44,6 +44,9 @@ func getGoodSLO(name string) prometheus.SLO {
 			"owner":    "myteam",
 			"category": "test",
 		},
+		InfoLabels: map[string]string{
+			"foo": "bar",
+		},
 		PageAlertMeta: prometheus.AlertMeta{
 			Disable: false,
 			Name:    "testAlert",

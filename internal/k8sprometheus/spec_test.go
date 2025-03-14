@@ -234,6 +234,8 @@ spec:
     - name: "slo1"
       labels:
         category: test
+      infoLabels:
+        foo: bar
       objective: 99.99999
       description: "This is a test."
       sli:
@@ -298,6 +300,9 @@ spec:
 						Labels: map[string]string{
 							"owner":    "myteam",
 							"category": "test",
+						},
+						InfoLabels: map[string]string{
+							"foo": "bar",
 						},
 						PageAlertMeta: prometheus.AlertMeta{
 							Disable: false,

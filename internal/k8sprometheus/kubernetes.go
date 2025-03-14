@@ -173,6 +173,9 @@ var prometheusServiceLevelFakes = []runtime.Object{
 					Labels: map[string]string{
 						"slo01k1": "slo01v1",
 					},
+					InfoLabels: map[string]string{
+						"foo": "bar",
+					},
 					SLI: slothv1.SLI{Events: &slothv1.SLIEvents{
 						ErrorQuery: `sum(rate(http_request_duration_seconds_count{job="myservice",code=~"(5..|429)"}[{{.window}}]))`,
 						TotalQuery: `sum(rate(http_request_duration_seconds_count{job="myservice"}[{{.window}}]))`,

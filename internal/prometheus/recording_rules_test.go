@@ -527,6 +527,9 @@ func TestGenerateMetaRecordingRules(t *testing.T) {
 				Labels: map[string]string{
 					"kind": "test",
 				},
+				InfoLabels: map[string]string{
+					"foo": "bar",
+				},
 			},
 			alertGroup: getAlertGroup(),
 			expRules: []rulefmt.Rule{
@@ -608,6 +611,7 @@ slo:error_budget:ratio{sloth_id="test", sloth_service="test-svc", sloth_slo="tes
 						"sloth_mode":      "test",
 						"sloth_spec":      "test/v1",
 						"sloth_objective": "99.9",
+						"foo":             "bar",
 					},
 				},
 			},

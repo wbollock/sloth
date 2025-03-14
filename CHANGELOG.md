@@ -2,6 +2,28 @@
 
 ## [Unreleased]
 
+## [v0.13.1] - 2024-10-31
+
+- Update Mockery from 2.14.0 to 2.46.3
+- Run `make go-gen`
+- Run `make kube-gen`
+- Run `make examples-gen`
+- Bump Helm Chart version from 0.8.1 to 0.8.2
+- Bump image version from v0.13.0 to v0.13.1
+
+## [v0.13.0] - 2024-10-31
+
+- Fix buildvcs issues with test scripts
+- Bump golang version from 1.19.3 to 1.23
+- Bump golangci-lint version from 1.50.0 to 1.61.0
+- Bump helm-chart-releaser action from v1.4.1 to v1.6.0
+- Ran `go mod tidy`
+- Update test cases for new info labels
+- Remove info labels from K8sMeta spec
+- Custom labels for `sloth_slo_info{}` metric [#4](https://github.com/linode-obs/sloth/pull/4)
+- Bump Helm Chart version
+- disable buildvcs [#8](https://github.com/linode-obs/sloth/pull/8)
+
 ## [v0.12.0] - 2023-07-03
 
 - Custom rule_group intervals for all recording rule types or a global default.
@@ -166,7 +188,8 @@
 - Support raw query based SLI.
 - Kubernetes (prometheus-operator) CRD generation support.
 
-[unreleased]: https://github.com/slok/sloth/compare/v0.12.0...HEAD
+[unreleased]: https://github.com/linode-obs/sloth/compare/v0.13.0...HEAD
+[v0.13.0]: https://github.com/slok/sloth/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/slok/sloth/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/slok/sloth/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/slok/sloth/compare/v0.9.0...v0.10.0
